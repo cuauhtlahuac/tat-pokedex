@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Dimensions, StyleSheet, View} from 'react-native';
-import AppCard from '@components/card';
 import Carousel from 'react-native-snap-carousel';
-import axios from 'axios';
 
-const CardList = () => {
+import AppCard from '@components/card';
+
+const CardList = ({pokemons}) => {
   const horizontalMargin = 50;
   const slideWidth = 150;
   const sliderWidth = Dimensions.get('window').width;
@@ -13,7 +13,7 @@ const CardList = () => {
   return (
     <View style={styles.container}>
       <Carousel
-        data={[1, 2, 3]}
+        data={pokemons.reverse()}
         renderItem={AppCard}
         sliderWidth={sliderWidth}
         itemWidth={itemWidth}
